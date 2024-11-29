@@ -31,8 +31,10 @@ test("Size of N is correct", (t) => {
   // Yes, the 256 bits number is actually 257 bits number
   // https://groups.google.com/forum/#!topic/clipperz/DJFqZYHv2qk
   const expectedSizeInBytes: number[] = [33, 64, 96, 128, 192, 256];
-  const actualSizeInBytes: number[] = Object.keys(SRPParameters.PrimeGroup).map(
-    (key) => bigIntToArrayBuffer(SRPParameters.PrimeGroup[key].N).byteLength,
-  );
+  const actualSizeInBytes: number[] = Object.keys(SRPParameters.PrimeGroup)
+    .map(
+      (key) => bigIntToArrayBuffer(SRPParameters.PrimeGroup[key].N).byteLength,
+    )
+    .sort((x, y) => x - y);
   t.deepEqual(expectedSizeInBytes, actualSizeInBytes, "N sizes are correct");
 });

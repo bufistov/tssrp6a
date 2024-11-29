@@ -32,7 +32,7 @@ jobs:
       - name: Build esm
         run: yarn build:esm
       - name: Install puppeteer and static
-        run: yarn add puppeteer@9.1.1 node-static@0.7.11
+        run: yarn add puppeteer@23.9.0 node-static@0.7.11
       - name: Launch static
         run: yarn static &
       - name: Browser Test

@@ -10,7 +10,6 @@ export let crossEnvCrypto: CompatibleCrypto;
 try {
   const webcrypto =
     (typeof window !== "undefined" && window.crypto) ||
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     require("crypto").webcrypto; // Node v15+ has webcrypto built in, lets use that if we can
 
   if (webcrypto) {
@@ -33,7 +32,7 @@ try {
     };
   } else {
     // otherwise lets use node's crypto
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
+
     const nodeCrypto = require("crypto");
     const nodeCreateHashToHashFunction =
       (algorithm: AlgorithmIdentifier) => (data: ArrayBuffer) =>
